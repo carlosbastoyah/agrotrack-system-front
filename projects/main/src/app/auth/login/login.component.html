@@ -1,0 +1,30 @@
+<div class="login-container-wrapper">
+    <div class="login-container">
+        <div class="logo">
+            <!-- <div class="logo-icon">🌱</div>
+        <div class="logo-text">grotrack</div> -->
+            <img src="assets/vendors/images/login/logo-agrotrack.svg" alt="Logo Agrotrack" width="269">
+        </div>
+
+        <h1>Iniciar sesión</h1>
+        <p class="subtitle">
+            Bienvenido de nuevo, ingresa tus credenciales para continuar.
+        </p>
+
+        <form (ngSubmit)="login()" [formGroup]="formGroup">
+            <div class="form-group">
+                <input type="email" id="email" formControlName="username" placeholder="Ingresa tu correo electronico" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password" formControlName="password" placeholder="Contraseña" required>
+            </div>
+
+            <button type="submit" class="login-button">Iniciar sesión</button>
+        </form>
+
+        <p class="footer-text">
+            ¿No tienes cuenta? <strong>Registrate</strong>.
+        </p>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+.login-container-wrapper{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(/assets/vendors/images/login/background-login.jpg) no-repeat center center fixed;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.login-container {
+  background: url(/assets/vendors/images/login/glass.png) no-repeat center center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 50px 70px;
+  border-radius: 20px;
+  max-width: 550px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+  background-size: cover;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: #5a8a3d;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.logo-text {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2d4a1f;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+  font-size: 28px;
+  color: #33443D;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.subtitle {
+  color: #333;
+  margin-bottom: 35px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+input:focus {
+  outline: none;
+  border-color: #81A869;
+  box-shadow: 0 0 0 3px rgba(90, 138, 61, 0.1);
+}
+
+input::placeholder {
+  color: #999;
+}
+
+.login-button {
+  width: 100%;
+  padding: 15px;
+  background: #81A869;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background: #4a7332;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(90, 138, 61, 0.3);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.footer-text {
+  margin-top: 25px;
+  color: #333;
+  font-size: 13px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.footer-text strong {
+  color: #2d4a1f;
+}
