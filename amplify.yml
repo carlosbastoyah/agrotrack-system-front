@@ -1,0 +1,63 @@
+version: 1
+applications:
+  - appRoot: .
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - echo "Setting environment variables..."
+            - export NODE_ENV=production
+            - export AMPLIFY_ENV=${AWS_BRANCH}
+            - echo "Installing dependencies..."
+            - npm ci
+            - echo "Generating environment files..."
+            - npm run generate:env
+        build:
+          commands:
+            - echo "Building shared libraries..."
+            - npm run build:core
+            - npm run build:vendors
+            - echo "Building microfrontends..."
+            - npm run build:main
+            - npm run build:administration
+            - echo "Preparing output structure..."
+            - mkdir -p .amplify-hosting
+            # Copy main app to root
+            - cp -r dist/main/* .amplify-hosting/
+            # Copy administration app to administration path
+            - mkdir -p .amplify-hosting/administration
+            - cp -r dist/administration/* .amplify-hosting/administration/
+        postBuild:
+          commands:
+            - echo "Build completed successfully"
+      artifacts:
+        baseDirectory: .amplify-hosting
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+          - dist/**/*
+      customHeaders:
+        - pattern: '**/*.js'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=31536000, immutable'
+        - pattern: '**/*.css'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=31536000, immutable'
+        - pattern: '**/*.json'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=3600'
+        - pattern: '**/remoteEntry.json'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=300'
+            - key: 'Access-Control-Allow-Origin'
+              value: '*'
+            - key: 'Access-Control-Allow-Methods'
+              value: 'GET, OPTIONS'
+            - key: 'Access-Control-Allow-Headers'
+              value: 'Content-Type'

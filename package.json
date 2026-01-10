@@ -5,6 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "generate:env": "node scripts/generate-env.js",
+    "build:all": "npm run generate:env && npm run build:core && npm run build:vendors && npm run build:main && npm run build:administration",
+    "build:core": "ng build core",
+    "build:vendors": "ng build vendors",
+    "build:main": "ng build main --configuration production",
+    "build:administration": "ng build administration --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
